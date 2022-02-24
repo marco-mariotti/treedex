@@ -1,0 +1,372 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+.line {
+    stroke: #000;
+    fill-opacity: 0;
+}
+
+.lengthline {
+    stroke-width: 0.5;
+}
+
+.childrenline {
+    stroke-width: 0.5;
+}
+
+.nodedot {
+    opacity: 1;
+}
+
+.box {
+    /*stroke: #000;*/
+    stroke-width: 0.5;
+}
+
+.text {
+    font-family: sans-serif;
+    user-select: none;
+}
+
+.name {
+    fill: #00A;
+}
+
+.node {
+    opacity: 0.2;
+    fill: #fff;
+}
+
+.outline {
+    fill-opacity: 0.1;
+    fill: #A50;
+    stroke: #000;
+    stroke-width: 0.5;
+}
+
+.fg_node {
+    opacity: 0;
+    fill: #222;
+}
+
+.fg_node:hover {
+    opacity: 0.05;
+}
+
+.search {
+    opacity: 0.3;
+}
+
+.tree {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.aligned {
+    display: none;
+    position: absolute;
+    right: 0px;
+    width: 20%;
+    height: 100%;
+    background: white;
+    /*overflow: hidden;*/
+    touch-action: none;
+    margin-left: 15px;
+}
+
+.div_aligned_grabber {
+    position: absolute;
+    top: 0;
+    left: -15px;
+    width: 15px;
+    height: 100%;
+    cursor: ew-resize;
+    background-color: lightgray;
+    opacity: 0;
+}
+
+.div_aligned_grabber:hover {
+    opacity: 0.5;
+}
+
+.div_pixi {
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+    width: 100%;
+    overflow: hidden;
+}
+
+.div_aligned_header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: inherit;
+    cursor: auto;
+}
+
+.div_aligned_footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: inherit;
+    cursor: auto;
+}
+
+.div_html {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.dotted {
+    stroke-dasharray: 4;
+}
+
+.minimap {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    z-index: 1;
+    background: #FFF;
+    visibility: hidden;
+    touch-action: none;
+    border-style: solid;
+    border-color: #d6d6d6;
+    border-width: 2px;
+    border-radius: 4px;
+}
+
+.visible_rect {
+    position: absolute;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+    border-color: gray;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.1);
+    cursor: grab;
+    touch-action: none;
+}
+
+.tree_scale {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background: #FFF;
+    padding-left: 10px;
+}
+
+.tree_scale svg {
+    width: 500px;
+    height: 30px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.tweakpane {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 350px;
+    z-index: 3;
+}
+
+.contextmenu {
+    position: absolute;
+    z-index: 4;
+    visibility: hidden;
+    border: 1px solid #AAA;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    padding: 6px;
+    padding-top: 0;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.contextmenu > :first-child {
+    margin-top: 6px;
+}
+
+.contextmenu i {
+    margin-left: 0;
+    margin-right: 7px;
+}
+
+.contextmenu .fa-exclamation-circle {
+    margin-left: 7px;
+    margin-right: 0;
+    color: #890000;
+}
+
+.ctx_button {
+    width: 100%;
+    cursor: pointer;
+    margin: 1px 0;
+    padding: 3px 15px;
+    border-width: 0;
+    border-radius: 4px;
+    text-align: left;
+    background-color: inherit;
+}
+
+.ctx_button:hover {
+    background-color: #eaeaea;
+}
+
+.ctx_label {
+    padding: 5px 10px;
+    text-align: left;
+    background-color: #d6d6d6;
+    font-family: sans-serif;
+    font-size: 0.8em;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+
+.negative_xaxis {
+    stroke: #A50A;
+    stroke-width: 4px;
+    stroke-linecap: round;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #333;
+}
+
+/* from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd */
+kbd {
+    background-color: #eee;
+    border-radius: 3px;
+    border: 1px solid #b4b4b4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .2),
+                0 2px 0 0 rgba(255, 255, 255, .7) inset;
+    color: #333;
+    display: inline-block;
+    font-size: .85em;
+    font-weight: 700;
+    line-height: 1;
+    padding: 2px 4px;
+    white-space: nowrap;
+}
+
+/* Tweakpane customization */
+/* Total width */
+.tp-dfwv {
+    width: 330px !important;
+    z-index: 2;
+}
+
+.tp-dfwv * {
+    font-size: 0.6rem;
+}
+
+/* Folder padding */
+.tp-fldv.tp-fldv-expanded > .tp-fldv_c, .tp-rotv.tp-rotv-expanded .tp-rotv_c {
+    padding-bottom: 8px !important;
+    padding-right: 2px !important;
+}
+
+.tp-fldv.tp-cntv.tp-fldv-cpl {
+    margin-bottom: 4px;
+}
+
+/* Tab */
+button.tp-tbiv_b {
+    cursor: pointer;
+}
+
+/* Checkbox */
+.tp-lblv_v {
+    /*width: auto !important;*/
+    border-radius: 4px;
+}
+
+/* Color picker */
+.tp-colswv {
+    border-radius: 3px !important;
+}
+
+/* General tweakpane styling */
+.tp-rotv {
+    font-weight: bold !important;
+}
+
+/*:root {*/
+    /*--tp-font-family: sans-serif;*/
+    /*--tp-input-background-color: black;*/
+    /*--tp-input-background-color-focus: black;*/
+/*}*/
+
+/*Light mode tweakpane*/
+:root {
+    --tp-font-family: sans-serif;
+    --tp-base-background-color: #f7f7f7;
+    --tp-container-foreground-color: black;
+    --tp-container-background-color: #eaeaea;
+    --tp-input-background-color: #eaeaea;
+    --tp-input-background-color-focus: #eaeaea;
+    --tp-input-background-color-hover: #eaeaea;
+    --tp-input-foreground-color: gray;
+    --tp-monitor-background-color: var(--tp-input-background-color);
+    --tp-monitor-foreground-color: var(--tp-input-foreground-color);
+    --tp-label-foreground-color: gray;
+    --tp-button-background-color: #d6d6d6;
+    --tp-button-background-color-hover: #ccc;
+}
+
+
+
+/*Tooltip*/
+.tooltip {
+  display: none;
+  position: absolute;
+  width: 160px;
+  /*background-color: #d6d6d6;*/
+  background-color: #eaeaea;
+  color: black;
+  font-family:sans-serif;
+  font-size: 12px;
+  padding: 5px 10px;
+  margin-top: 20px;
+  margin-left: -55px;
+  border-radius: 2px;
+  border: solid 1px lightgray;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  transition: opacity 0.3s;
+  pointer-events: all;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent lightgray transparent;
+}
+
+
+/*Sweetalert*/
+.swal2-popup {
+    width: auto !important;
+}

@@ -1,0 +1,274 @@
+{
+  "src/lib/components/EteComponent.react.js": {
+    "description": "",
+    "displayName": "EteComponent",
+    "methods": [
+      {
+        "name": "iframe",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "createSelection",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "name",
+            "type": null
+          },
+          {
+            "name": "selectCommand",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "removeSelection",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "name",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "getAllActive",
+        "docblock": null,
+        "modifiers": [
+          "async"
+        ],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "getActiveLeaves",
+        "docblock": null,
+        "modifiers": [
+          "async"
+        ],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "modifyActive",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "nodes",
+            "type": null
+          },
+          {
+            "name": "type",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "getDiff",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "oldArray",
+            "type": null
+          },
+          {
+            "name": "newArray",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "updateActive",
+        "docblock": null,
+        "modifiers": [
+          "async"
+        ],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "updateSaved",
+        "docblock": null,
+        "modifiers": [
+          "async"
+        ],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "updateSelections",
+        "docblock": null,
+        "modifiers": [
+          "async"
+        ],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "onPostMessage",
+        "docblock": null,
+        "modifiers": [
+          "async"
+        ],
+        "params": [
+          {
+            "name": "event",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
+      },
+      "url": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "URL from where ETE's server is running."
+      },
+      "path": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "URL from where ETE's server is running.",
+        "defaultValue": {
+          "value": "\"\"",
+          "computed": false
+        }
+      },
+      "treeid": {
+        "type": {
+          "name": "number"
+        },
+        "required": true,
+        "description": "Integer that defines a tree"
+      },
+      "width": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "iframe width. Default: 100%",
+        "defaultValue": {
+          "value": "\"100%\"",
+          "computed": false
+        }
+      },
+      "height": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "iframe height. Default: 100%",
+        "defaultValue": {
+          "value": "\"100%\"",
+          "computed": false
+        }
+      },
+      "hover": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Hovered node"
+      },
+      "activeNodes": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "object"
+          }
+        },
+        "required": false,
+        "description": "Active node selections (nodes not saved with name)",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "activeClades": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "object"
+          }
+        },
+        "required": false,
+        "description": "Active clade selections (nodes not saved with name)",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "activeLeaves": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "object"
+          }
+        },
+        "required": false,
+        "description": "Active leaf selections (nodes not saved with name)",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "saved": {
+        "type": {
+          "name": "objectOf",
+          "value": {
+            "name": "exact",
+            "value": {
+              "name": {
+                "name": "string",
+                "required": false
+              },
+              "color": {
+                "name": "string",
+                "required": false
+              },
+              "selectCommand": {
+                "name": "string",
+                "required": false
+              }
+            }
+          }
+        },
+        "required": false,
+        "description": "Saved selections",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      }
+    }
+  }
+}
